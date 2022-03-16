@@ -1,0 +1,22 @@
+<section class="container">
+  <div class="pt-5 mt-3">
+    <div class="pt-2 text-center">
+      <h1>Upload file</h1>
+      <p class="small">Please upload a .csv or .xlsx files only.</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="card w-auto shadow">
+        <div class="card-body">
+          <form #fileUploadForm="ngForm" (ngSubmit)="onSubmitFileUploadForm(fileUploadForm)">
+            <div class="mb-2">
+              <input type="file" class="form-control" required accept=".csv, .xlsx"
+                     name="dataFileFromUser" ngModel #dataFileFromUser="ngModel">
+              <div class="alert-danger-custom" *ngIf="dataFileFromUser.touched && !dataFileFromUser.valid">File is required.</div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!fileUploadForm.valid">Upload</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
