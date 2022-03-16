@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {FileUploadService} from "../../services/file-upload.service";
 
 @Component({
   selector: 'app-upload',
@@ -8,9 +9,13 @@ import {NgForm} from "@angular/forms";
 })
 export class UploadComponent{
 
-  constructor() { }
+  constructor(private uploadService: FileUploadService) { }
 
   onSubmitFileUploadForm(fileUploadForm: NgForm) {
-    console.log(fileUploadForm.value);
+    this.uploadService.uploadFile(fileUploadForm.value.dataFileFromUser[0]).then(() => {
+      alert('File uploaded successfully');
+    }).catch(() => {
+      alert('Error uploading file');
+    });
   }
 }

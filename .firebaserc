@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "testing2-30e9e": {
+      "hosting": {
+        "CoDocHelper": [
+          "testing2-30e9e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "testing2-30e9e"
+  }
+}
